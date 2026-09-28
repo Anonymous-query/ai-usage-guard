@@ -7,7 +7,7 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 # Runs one compliance cycle then exits — driven by the .timer, not a daemon loop.
-ExecStart=/usr/local/bin/intern-ai-guard apply
+ExecStart=/usr/local/bin/intern-ai-guard enforce
 Nice=10
 # Hardening: needs root for nft/hosts, but drop everything not required.
 ProtectHome=read-only

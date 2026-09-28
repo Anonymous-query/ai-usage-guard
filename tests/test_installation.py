@@ -32,6 +32,12 @@ def test_service_is_oneshot_no_restart_loop():
     assert "Restart=always" not in text  # no aggressive respawn
 
 
+def test_service_uses_enforce_entrypoint():
+    # The service must call 'enforce' (check+repair+drift audit), not bare 'apply'.
+    text = open(os.path.join(ROOT, "systemd/intern-ai-guard.service")).read()
+    assert "intern-ai-guard enforce" in text
+
+
 def test_timer_has_persistent_and_jitter():
     text = open(os.path.join(ROOT, "systemd/intern-ai-guard.timer")).read()
     assert "Persistent=true" in text

@@ -31,6 +31,16 @@ def cmd_apply(args):
     return 0
 
 
+def cmd_enforce(args):
+    """systemd entry point: check → repair drifted layers → detect, with the
+    drift/restored audit narrative. Silent on stdout (journald captures events)."""
+    cfg = _load(args)
+    lg = guardlog.get_logger(cfg["logging"]["level"])
+    guardlog.event(lg, "policy_loaded", level="debug", version=cfg["version"])
+    compliance.service_run(cfg, lg)
+    return 0
+
+
 def cmd_check(args):
     cfg = _load(args)
     lg = guardlog.get_logger(cfg["logging"]["level"])
@@ -115,6 +125,7 @@ def main(argv=None):
     for name, fn, help_ in (
         ("status", cmd_status, "show enforcement + detection status"),
         ("apply", cmd_apply, "apply/repair all enforcement layers (root)"),
+        ("enforce", cmd_enforce, "service entry point: check+repair+detect with drift audit (root)"),
         ("check", cmd_check, "read-only drift check"),
         ("show-policy", cmd_show_policy, "summarize loaded policy"),
         ("version", cmd_version, "print version"),
