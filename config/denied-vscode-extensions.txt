@@ -1,0 +1,22 @@
+# denied-vscode-extensions.txt — extension IDs (publisher.name), case-insensitive.
+# Version suffixes are handled by the scanner. Unrelated extensions are never touched.
+github.copilot
+github.copilot-chat
+github.copilot-labs
+continue.continue
+saoudrizwan.claude-dev
+rooveterinaryinc.roo-cline
+codeium.codeium
+codeium.windsurf-pyright
+tabnine.tabnine-vscode
+amazonwebservices.amazon-q-vscode
+amazonwebservices.aws-toolkit-vscode
+anthropic.claude-code
+google.geminicodeassist
+supermaven.supermaven
+augment.vscode-augment
+sourcegraph.cody-ai
+blackboxapp.blackbox
+danielsanmedium.dscodegpt
+genieai.chatgpt-vscode
+bito.bito

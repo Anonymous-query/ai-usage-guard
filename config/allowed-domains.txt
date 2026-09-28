@@ -1,0 +1,4 @@
+# allowed-domains.txt — EXCEPTIONS carved out of the deny set (this system is
+# blocklist-only; this file never becomes a default-deny allowlist).
+# Use when a deny entry overreaches, e.g. if you deny a broad domain but need
+# one subdomain. Empty by default.

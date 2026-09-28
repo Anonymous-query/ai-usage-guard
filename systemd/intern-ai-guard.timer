@@ -1,0 +1,14 @@
+[Unit]
+Description=Periodic Intern AI Guard compliance check
+Documentation=file:/usr/local/lib/intern-ai-guard/docs/ARCHITECTURE.md
+
+[Timer]
+# Run shortly after boot, then every 15 min with jitter (avoids thundering herd
+# across a fleet and makes the exact next-run time unpredictable to the user).
+OnBootSec=2min
+OnUnitActiveSec=15min
+RandomizedDelaySec=90
+Persistent=true
+
+[Install]
+WantedBy=timers.target

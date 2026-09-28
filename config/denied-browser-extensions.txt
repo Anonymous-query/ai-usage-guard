@@ -1,0 +1,9 @@
+# denied-browser-extensions.txt — Chrome Web Store extension IDs (32 chars) for
+# known AI assistant extensions. Fed into ExtensionInstallBlocklist for the
+# Chromium family. ⚠ VERIFY each ID against the Web Store before relying on it —
+# a wrong ID blocks an unrelated extension. Add one ID per line, `# name` comment.
+ofpnmcalabcbjgholdjcjblkibolbppb  # Monica
+difoiogjjojoaoomphldepapgpbgkhkb  # Sider
+camppjleccjaphfdbohjdohecfnoikec  # Merlin
+eanggfilgoajaocelnaflolkadkeghjp  # HARPA AI
+jgjaeacdkonaoafenlfkkkmbaopkbilf  # ChatGPT for Google

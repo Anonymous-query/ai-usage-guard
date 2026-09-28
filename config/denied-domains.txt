@@ -1,0 +1,103 @@
+# denied-domains.txt — one domain per line; subdomains are covered where the layer
+# supports it (browser policy: yes; /etc/hosts: exact names only, www. auto-added).
+# Section headers `# [Category]` tag entries for reporting. Blank lines ignored.
+
+# [AI chat]
+chatgpt.com
+openai.com
+anthropic.com
+claude.ai
+claude.com
+gemini.google.com
+bard.google.com
+copilot.microsoft.com
+perplexity.ai
+poe.com
+deepseek.com
+mistral.ai
+chat.mistral.ai
+grok.com
+x.ai
+meta.ai
+character.ai
+kimi.com
+qwen.ai
+pi.ai
+chatglm.cn
+duck.ai
+
+# [AI search]
+you.com
+phind.com
+lmarena.ai
+lmsys.org
+
+# [AI APIs]
+api.openai.com
+api.anthropic.com
+aistudio.google.com
+makersuite.google.com
+generativelanguage.googleapis.com
+aiplatform.googleapis.com
+openrouter.ai
+groq.com
+api.groq.com
+together.ai
+together.xyz
+cohere.com
+fireworks.ai
+replicate.com
+deepinfra.com
+bedrock.us-east-1.amazonaws.com
+bedrock-runtime.us-east-1.amazonaws.com
+bedrock-runtime.ap-south-1.amazonaws.com
+openai.azure.com
+
+# [AI coding]
+githubcopilot.com
+api.githubcopilot.com
+copilot-proxy.githubusercontent.com
+copilot-telemetry.githubusercontent.com
+codeium.com
+api.codeium.com
+server.codeium.com
+windsurf.com
+cursor.sh
+cursor.com
+api.cursor.sh
+api2.cursor.sh
+api3.cursor.sh
+tabnine.com
+api.tabnine.com
+supermaven.com
+augmentcode.com
+sourcegraph.com
+continue.dev
+cline.bot
+warp.dev
+codewhisperer.us-east-1.amazonaws.com
+q.us-east-1.amazonaws.com
+github.dev
+gitpod.io
+colab.research.google.com
+
+# [AI image generation]
+midjourney.com
+leonardo.ai
+ideogram.ai
+
+# [AI model hosting]
+huggingface.co
+hf.co
+cdn-lfs.huggingface.co
+
+# [AI model downloads]
+ollama.com
+ollama.ai
+registry.ollama.ai
+lmstudio.ai
+gpt4all.io
+jan.ai
+
+# [AI desktop applications]
+app.warp.dev

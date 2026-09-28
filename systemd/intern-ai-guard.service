@@ -1,0 +1,26 @@
+[Unit]
+Description=Intern AI Guard — compliance check and drift repair
+Documentation=file:/usr/local/lib/intern-ai-guard/docs/ARCHITECTURE.md
+After=network-online.target nss-lookup.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# Runs one compliance cycle then exits — driven by the .timer, not a daemon loop.
+ExecStart=/usr/local/bin/intern-ai-guard apply
+Nice=10
+# Hardening: needs root for nft/hosts, but drop everything not required.
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+# Bound this unit's journal so logs can never fill the disk, regardless of
+# system-wide journald settings. Oldest entries roll off past the cap.
+LogRateLimitIntervalSec=30s
+LogRateLimitBurst=50
+# NOT NoNewPrivileges (nft/systemctl calls need it off), NOT PrivateNetwork.
+
+[Install]
+WantedBy=multi-user.target

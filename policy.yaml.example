@@ -1,0 +1,46 @@
+# intern-ai-guard policy — copy to /etc/intern-ai-guard/policy.yaml
+# Blocklist-only: everything NOT explicitly denied keeps working.
+version: 1                      # integer; bump when you change policy meaningfully
+updated: "2026-09-28"
+
+network:
+  hosts_blocking: true          # managed marker block in /etc/hosts (no wildcards — see docs)
+  block_public_dns: true        # drop port 53 to public IPs (private/LAN resolvers stay allowed;
+                                # currently-configured upstreams are auto-whitelisted at apply time)
+  block_dot: true               # drop tcp/853 (DNS-over-TLS)
+  block_doh_resolvers: true     # drop :443 to well-known public DoH resolver IPs
+  block_quic: false             # drop udp/443 (forces TCP; may slow some sites — off by default)
+  resolve_and_block_ips: false  # resolve denied domains and drop their IPs.
+                                # OFF by default: CDN-fronted AI sites share IPs with normal
+                                # sites — collateral damage risk. Enable only knowingly.
+  ipv6: true                    # mirror all rules for IPv6
+
+domains:
+  deny_files: [denied-domains.txt]     # in /etc/intern-ai-guard/
+  allow_files: [allowed-domains.txt]   # exceptions carved OUT of the deny set (never a
+                                       # default-deny list — this system blocks only)
+
+applications:
+  enforce: report               # report | terminate (terminate kills matching processes)
+  deny_files: [denied-applications.txt]
+  process_deny_files: [denied-processes.txt]
+
+vscode:
+  enforce: report               # report | remove (remove uninstalls listed extension dirs)
+  deny_files: [denied-vscode-extensions.txt]
+
+browsers:
+  manage_policies: true         # write Firefox/Chrome/Chromium/Brave/Edge policy files
+  extension_deny_files: [denied-browser-extensions.txt]
+
+compliance:
+  auto_repair: true             # re-apply drifted layers on every service run
+  interval_minutes: 15          # systemd timer cadence (informational; timer file is source of truth)
+
+logging:
+  level: info                   # debug | info | warning
+
+# Future central management (v2 — not implemented, schema reserved):
+# central:
+#   policy_url: https://policy.company.example/intern-ai-guard/policy.yaml
+#   verify_key: /etc/intern-ai-guard/policy-signing.pub

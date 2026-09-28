@@ -1,0 +1,33 @@
+# denied-applications.txt — glob patterns matched (case-insensitive) against
+# binary names, AppImage/desktop-file names, dpkg package names, snap names.
+# [AI runtimes]
+ollama
+lmstudio
+lm-studio
+lm_studio*
+llama-server
+llama-cli
+llamafile*
+gpt4all*
+jan-*.AppImage
+jan
+# [AI CLI tools]
+aider
+claude
+codex
+gemini
+goose
+sgpt
+shell-gpt
+open-interpreter
+interpreter
+gptme
+llm
+# [AI desktop/IDE applications]
+cursor
+cursor*.AppImage
+windsurf
+windsurf*.AppImage
+trae
+void*.AppImage
+warp-terminal

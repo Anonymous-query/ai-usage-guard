@@ -1,0 +1,11 @@
+# denied-processes.txt — glob patterns matched against process comm and argv[0].
+# Used by the process scan (and terminated when applications.enforce: terminate).
+ollama
+llama-server
+lm-studio
+lmstudio
+aider
+open-interpreter
+cursor
+windsurf
+warp-terminal
